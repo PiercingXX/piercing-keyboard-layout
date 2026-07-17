@@ -45,8 +45,6 @@ and ortholinear boards.
 
 ![Piercing layout on HeliBoard](images/piercing-heliboard.png)
 
-Each image also exists as `.svg` in `images/`.
-
 ## Install
 
 ### Linux (X11 and Wayland) — `linux/`
@@ -64,6 +62,22 @@ verifies the layout compiles. Nothing activates until you select it:
 | sway | `input type:keyboard xkb_layout piercing` |
 | Hyprland | `input { kb_layout = piercing }` |
 | X11 | `setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY` |
+
+### Linux phones (Phosh / Squeekboard) — `linux/squeekboard/`
+
+On-screen keyboard layouts for Phosh phones (Furi, PinePhone, Librem 5),
+based on the furi-phone-colemak-keyboard structure. Includes portrait +
+landscape (`_wide`) variants of the base layout plus `terminal/` (Ctrl,
+Alt, Tab, arrows, F-keys), `email/` (@ key), and `url/` (/ key) hint
+variants. Bottom row everywhere: Shift · 123 · prefs · Enter · space ·
+Backspace — Enter left of space, same as the Preonic thumb keys.
+
+Run **on the phone**, inside the Phosh session:
+
+```sh
+./linux/install.sh              # xkb layout first (defines the input source)
+./linux/squeekboard/install.sh  # copies layouts, enables the input source
+```
 
 ### Windows — `windows/`
 
@@ -83,15 +97,16 @@ of Gboard itself. Use [HeliBoard](https://github.com/Helium314/HeliBoard)
 
 1. HeliBoard Settings → Languages & Layouts → English → **+** →
    load `android/heliboard/piercing.txt`.
-2. Long-press any top-row letter for that column's number-row pair
+2. Settings → Layouts → Functional keys → add custom →
+   load `android/heliboard/piercing-functional-keys.json`. This clears the
+   cramped Shift/Backspace off the letter row and makes the bottom row
+   `?123 · ⇧ · ⏎ · space · ⌫` (Enter left of space, like the Preonic).
+3. Long-press any top-row letter for that column's number-row pair
    (e.g. long-press `q` → `9` / `!`).
-3. Optional: enable Settings → Preferences → Number row. HeliBoard can
+4. Optional: enable Settings → Preferences → Number row. HeliBoard can
    even reorder it to `9 7 5 3 1 0 2 4 6 8` via a custom
    `[number_row]` section — see HeliBoard's
    [layouts.md](https://github.com/Helium314/HeliBoard/blob/main/layouts.md).
-
-Phone chrome (spacebar width, bottom action row, backspace at the right of
-the third row) is fixed by HeliBoard, not by the layout file.
 
 **Physical keyboards** (USB/BT): build the tiny APK in
 `android/hardware-keyboard/` (open in Android Studio or run
@@ -138,10 +153,11 @@ layout in each OS, delete the `Scancode Map` registry value on Windows.
 ## Repository layout
 
 ```
-images/                       per-device diagrams (SVG + PNG)
+images/                       per-device diagrams (PNG)
 linux/                        xkb symbols + rules + install.sh
+linux/squeekboard/            Phosh phone OSK layouts + install.sh
 windows/                      MSKLC .klc, scancode-remap.reg, AltGr .ahk, install.ps1
-android/heliboard/            touch-keyboard custom layout file
+android/heliboard/            touch-keyboard layout + functional keys json
 android/hardware-keyboard/    KCM layout APK project (physical keyboards)
 ortho-5x12/                   Preonic: Vial apply/restore tool, QMK mirror, KLE
 ```
