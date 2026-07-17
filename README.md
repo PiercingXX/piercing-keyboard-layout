@@ -1,9 +1,8 @@
 # Piercing Keyboard Layout
 
-A Colemak-family keyboard layout with **E and T on the left home row**,
-designed around where the hands naturally want the keys. One layout,
-every platform: Linux (X11 + Wayland), Windows, Android/GrapheneOS, and
-QMK/Vial ortholinear boards.
+My personal layout designed by what works for me. No one else will touch this but that is not why its here.
+
+One layout,every platform: Linux (X11 + Wayland), Windows, Android/GrapheneOS, and QMK/Vial ortholinear boards.
 
 ```
 `~   !9   @7   #5   $3   %1   ^0   &2   *4   (6   )8   -_   =+   Del
@@ -15,12 +14,11 @@ Ctrl  Super  Alt         [ Space ]        AltGr  Super  Menu  Ctrl
 
 ## Design
 
-- **Home row `a s e t d h n u i o`** — the two most frequent letters (E, T)
-  under the strongest left-hand fingers.
+- **Home row `a s e t d h n u i o`** 
 - **Number row: symbols unshifted, digits on Shift.** Digits run odd-left /
   even-right radiating out from the center (`9 7 5 3 1 | 0 2 4 6 8`), so
   consecutive digits alternate hands.
-- **Backspace on the home row left** (the old Caps Lock key) — the most-used
+- **Backspace where it should be** (the old Caps Lock key) — the most-used
   editing key on the strongest position. **Delete** takes the old Backspace
   corner. There is no Caps Lock.
 - **AltGr + h/j/k/l = ← ↓ ↑ →** — vim arrows that follow the *letters*,
