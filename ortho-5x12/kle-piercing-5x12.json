@@ -1,0 +1,8 @@
+[
+  {"name": "PiercingXX 5x12 (Preonic 2x2u) — as rendered by the OS layout", "author": "PiercingXX"},
+  ["~\n`", "9\n!", "7\n@", "5\n#", "3\n$", "1\n%", "0\n^", "2\n&", "4\n*", "6\n(", "8\n)", "Del"],
+  ["Tab", "Q", "R", "F", "W", "G", ":\n;", "L\n\n→", "P", "Y", "Z", "Play"],
+  ["Backspace", "A", "S", "E", "T", "D", "H\n\n←", "N", "U", "I", "O", "\"\n'"],
+  ["Shift", "<\n,\n\n\nhold: L1", "C\n\n\n\nhold: L2", "X", "V", "?\n/", "K\n\n↑", "M", "B", "J\n\n↓", ">\n.", "Shift"],
+  ["Ctrl", "Super", "Alt", "AltGr", {"w": 2}, "Enter", {"w": 2}, "Space", "PrtSc", "Vol-", "Vol+", "Esc"]
+]

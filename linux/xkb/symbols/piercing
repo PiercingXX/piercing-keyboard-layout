@@ -1,0 +1,86 @@
+// PiercingXX keyboard layout — xkb symbols
+// https://github.com/PiercingXX
+//
+// Colemak-style layout with E and T on the left home row.
+//
+// Ortholinear reference grid (base level; keycodes are position-based, so
+// this works identically on row-staggered and ortholinear boards):
+//
+//   ` ! @ # $ % ^ & * ( ) - =   [Delete]
+//   q r f w g ; l p y z [ ] \
+//   a s e t d h n u i o '            <- Backspace at left (old Caps pos)
+//   , c x v / k m b j .
+//
+//  - Number row: symbols unshifted, digits on Shift. Digits run odd-left /
+//    even-right radiating out from the center (9 7 5 3 1 | 0 2 4 6 8), so
+//    consecutive digits alternate hands.
+//  - Backspace on the home row left; Delete in the old Backspace corner.
+//    There is no Caps Lock.
+//  - AltGr (Right Alt) + the keys that TYPE h/j/k/l = arrow keys, exactly
+//    like vim: h=Left j=Down k=Up l=Right (the arrows follow the letters,
+//    wherever they sit).
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    include "us(basic)"
+    name[Group1]= "English (Piercing)";
+
+    //           Base             Shift          AltGr
+    key <TLDE> { [ grave,          asciitilde ] };
+    key <AE01> { [ exclam,         9          ] };
+    key <AE02> { [ at,             7          ] };
+    key <AE03> { [ numbersign,     5          ] };
+    key <AE04> { [ dollar,         3          ] };
+    key <AE05> { [ percent,        1          ] };
+    key <AE06> { [ asciicircum,    0          ] };
+    key <AE07> { [ ampersand,      2          ] };
+    key <AE08> { [ asterisk,       4          ] };
+    key <AE09> { [ parenleft,      6          ] };
+    key <AE10> { [ parenright,     8          ] };
+    key <AE11> { [ minus,          underscore ] };
+    key <AE12> { [ equal,          plus       ] };
+    key <BKSP> { [ Delete,         Delete     ] };
+
+    key <AD01> { [ q,              Q          ] };
+    key <AD02> { [ r,              R          ] };
+    key <AD03> { [ f,              F          ] };
+    key <AD04> { [ w,              W          ] };
+    key <AD05> { [ g,              G          ] };
+    key <AD06> { [ semicolon,      colon      ] };
+    key <AD07> { [ l,              L,           Right ] };
+    key <AD08> { [ p,              P          ] };
+    key <AD09> { [ y,              Y          ] };
+    key <AD10> { [ z,              Z          ] };
+    key <AD11> { [ bracketleft,    braceleft  ] };
+    key <AD12> { [ bracketright,   braceright ] };
+    key <BKSL> { [ backslash,      bar        ] };
+
+    key <CAPS> { [ BackSpace,      BackSpace  ] };
+    key <AC01> { [ a,              A          ] };
+    key <AC02> { [ s,              S          ] };
+    key <AC03> { [ e,              E          ] };
+    key <AC04> { [ t,              T          ] };
+    key <AC05> { [ d,              D          ] };
+    key <AC06> { [ h,              H,           Left  ] };
+    key <AC07> { [ n,              N          ] };
+    key <AC08> { [ u,              U          ] };
+    key <AC09> { [ i,              I          ] };
+    key <AC10> { [ o,              O          ] };
+    key <AC11> { [ apostrophe,     quotedbl   ] };
+
+    key <AB01> { [ comma,          less       ] };
+    key <AB02> { [ c,              C          ] };
+    key <AB03> { [ x,              X          ] };
+    key <AB04> { [ v,              V          ] };
+    key <AB05> { [ slash,          question   ] };
+    key <AB06> { [ k,              K,           Up    ] };
+    key <AB07> { [ m,              M          ] };
+    key <AB08> { [ b,              B          ] };
+    key <AB09> { [ j,              J,           Down  ] };
+    key <AB10> { [ period,         greater    ] };
+
+    key <LSGT> { [ minus,          underscore ] };
+
+    include "level3(ralt_switch)"
+};

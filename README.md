@@ -1,0 +1,153 @@
+# Piercing Keyboard Layout
+
+A Colemak-family keyboard layout with **E and T on the left home row**,
+designed around where the hands naturally want the keys. One layout,
+every platform: Linux (X11 + Wayland), Windows, Android/GrapheneOS, and
+QMK/Vial ortholinear boards.
+
+```
+`~   !9   @7   #5   $3   %1   ^0   &2   *4   (6   )8   -_   =+   Del
+Tab   q    r    f    w    g    ;:   l    p    y    z    [{   ]}   \|
+Bksp  a    s    e    t    d    h    n    u    i    o    '"       Enter
+Shft  ,<   c    x    v    /?   k    m    b    j    .>            Shft
+Ctrl  Super  Alt         [ Space ]        AltGr  Super  Menu  Ctrl
+```
+
+## Design
+
+- **Home row `a s e t d h n u i o`** — the two most frequent letters (E, T)
+  under the strongest left-hand fingers.
+- **Number row: symbols unshifted, digits on Shift.** Digits run odd-left /
+  even-right radiating out from the center (`9 7 5 3 1 | 0 2 4 6 8`), so
+  consecutive digits alternate hands.
+- **Backspace on the home row left** (the old Caps Lock key) — the most-used
+  editing key on the strongest position. **Delete** takes the old Backspace
+  corner. There is no Caps Lock.
+- **AltGr + h/j/k/l = ← ↓ ↑ →** — vim arrows that follow the *letters*,
+  wherever they live on the board.
+- Measured ~3.3% same-finger bigrams on English text (QWERTY ~7.6%,
+  Colemak ~1.6%).
+
+Everything is **position-based**: keyboards send standard scancodes and the
+OS layout does the remapping, so any keyboard works on any device and there
+is exactly one source of truth per OS. Works identically on row-staggered
+and ortholinear boards.
+
+## Visual reference
+
+### Ortholinear 5×12 (Preonic, 2u Enter + 2u Space) — base + layers
+
+![Piercing layout on the Preonic 5x12](images/piercing-preonic-5x12.png)
+
+### Staggered ANSI (laptop / desktop)
+
+![Piercing layout on a staggered ANSI board](images/piercing-staggered-ansi.png)
+
+### Android touch keyboard (HeliBoard)
+
+![Piercing layout on HeliBoard](images/piercing-heliboard.png)
+
+Each image also exists as `.svg` in `images/`.
+
+## Install
+
+### Linux (X11 and Wayland) — `linux/`
+
+```sh
+./linux/install.sh
+```
+
+Installs to `~/.config/xkb/` (user-level — survives system updates) and
+verifies the layout compiles. Nothing activates until you select it:
+
+| Environment | How to enable |
+|---|---|
+| GNOME / KDE (Wayland) | add input source "English (Piercing)" (re-login first) |
+| sway | `input type:keyboard xkb_layout piercing` |
+| Hyprland | `input { kb_layout = piercing }` |
+| X11 | `setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY` |
+
+### Windows — `windows/`
+
+1. Build `piercing.klc` with [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=102134):
+   Project → Build DLL and Setup Package → run the generated installer →
+   select "English (Piercing)" in Settings → Time & Language.
+2. Run `install.ps1` as Administrator — applies the Caps→Backspace and
+   Backspace→Delete scancode remaps and autostarts the AltGr-arrows script
+   (needs [AutoHotkey v2](https://www.autohotkey.com)). Reboot once.
+
+### Android / GrapheneOS — `android/`
+
+**Touch keyboard.** Google's Gboard has no mechanism for loading custom
+layouts — its closest built-in is stock Colemak, and that is a hard limit
+of Gboard itself. Use [HeliBoard](https://github.com/Helium314/HeliBoard)
+(F-Droid, works great on GrapheneOS):
+
+1. HeliBoard Settings → Languages & Layouts → English → **+** →
+   load `android/heliboard/piercing.txt`.
+2. Long-press any top-row letter for that column's number-row pair
+   (e.g. long-press `q` → `9` / `!`).
+3. Optional: enable Settings → Preferences → Number row. HeliBoard can
+   even reorder it to `9 7 5 3 1 0 2 4 6 8` via a custom
+   `[number_row]` section — see HeliBoard's
+   [layouts.md](https://github.com/Helium314/HeliBoard/blob/main/layouts.md).
+
+Phone chrome (spacebar width, bottom action row, backspace at the right of
+the third row) is fixed by HeliBoard, not by the layout file.
+
+**Physical keyboards** (USB/BT): build the tiny APK in
+`android/hardware-keyboard/` (open in Android Studio or run
+`gradle assembleRelease`; sideload on GrapheneOS), then
+Settings → System → Physical keyboard → "English (Piercing)".
+Includes the full layout, Backspace/Delete remaps, and AltGr arrows.
+
+### Preonic / QMK ortho boards — `ortho-5x12/`
+
+For a Drop Preonic rev3 running Vial firmware, `preonic-vial/apply-piercing.py`
+writes the keymap over USB — instant, no reflash, fully reversible:
+
+```sh
+./apply-piercing.py                  # dry run: show pending changes
+./apply-piercing.py --apply          # write to the board
+./apply-piercing.py --dump my.bin    # back up the current keymap first!
+./apply-piercing.py --restore my.bin # put a backup back
+```
+
+The board keeps sending standard positions (the OS layout remaps), with:
+
+- **Layer 1** (hold the `,` key): F1–F12, vim arrows on the h/j/k/l letter
+  keys, `- = \ ` [ ]` symbol column
+- **Layer 2** (hold the `c` key): numpad (digits encoded to survive the
+  Piercing number row) and the same symbol column
+- **AltGr thumb key** (4th bottom-left) — OS-level vim arrows, same finger
+  positions as Layer 1
+- Bottom row: Ctrl · Super · Alt · AltGr · Enter(2u) · Space(2u) · PrtSc ·
+  Vol− · Vol+ · Esc
+
+`qmk/keymap.c` is a compile-ready mirror for non-Vial QMK builds, and
+`kle-piercing-5x12.json` imports into
+[keyboard-layout-editor.com](https://keyboard-layout-editor.com).
+
+## Switching (and switching back)
+
+1. Preonic: `apply-piercing.py --dump backup.bin && apply-piercing.py --apply`
+2. Linux: select "English (Piercing)" as input source
+3. Windows / Android: install as above, pick the layout
+
+Roll back anytime: `--restore backup.bin` on the board, re-select your old
+layout in each OS, delete the `Scancode Map` registry value on Windows.
+
+## Repository layout
+
+```
+images/                       per-device diagrams (SVG + PNG)
+linux/                        xkb symbols + rules + install.sh
+windows/                      MSKLC .klc, scancode-remap.reg, AltGr .ahk, install.ps1
+android/heliboard/            touch-keyboard custom layout file
+android/hardware-keyboard/    KCM layout APK project (physical keyboards)
+ortho-5x12/                   Preonic: Vial apply/restore tool, QMK mirror, KLE
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE).

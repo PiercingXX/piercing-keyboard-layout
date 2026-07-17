@@ -1,0 +1,11 @@
+Windows Registry Editor Version 5.00
+
+; PiercingXX layout scancode remaps (MSKLC layouts cannot touch these keys):
+;   Caps Lock key  -> Backspace   (0e <- 3a)
+;   Backspace key  -> Delete      (e0,53 <- 0e)
+; There is no Caps Lock in this layout.
+; Sign out/in or reboot to take effect.
+; To UNDO: delete the "Scancode Map" value in this registry key and reboot.
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=hex:00,00,00,00,00,00,00,00,03,00,00,00,0e,00,3a,00,53,e0,0e,00,00,00,00,00

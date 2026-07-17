@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="764" height="430" viewBox="0 0 764 430">
+<rect x="0" y="0" width="764" height="430" fill="#1e1e1e"/>
+<rect x="20" y="70" width="724" height="340" rx="16" fill="#2a2a2a"/>
+<text x="20.00" y="32.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="start" dominant-baseline="middle" font-weight="bold">PiercingXX &#8212; Android touch (HeliBoard)</text>
+<text x="20.00" y="54.00" font-family="DejaVu Sans, sans-serif" font-size="13" fill="#999999" text-anchor="start" dominant-baseline="middle" font-weight="normal">android/heliboard/piercing.txt &#183; long-press a top-row letter for its number pair</text>
+<rect x="40.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="71.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">9</text>
+<rect x="109.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="140.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">7</text>
+<rect x="178.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="209.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">5</text>
+<rect x="247.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="278.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">3</text>
+<rect x="316.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="347.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">1</text>
+<rect x="385.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="416.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">0</text>
+<rect x="454.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="485.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">2</text>
+<rect x="523.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="554.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">4</text>
+<rect x="592.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="623.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">6</text>
+<rect x="661.00" y="90.00" width="63.00" height="44.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="692.50" y="112.00" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">8</text>
+<rect x="40.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="71.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">q</text>
+<text x="97.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">9!</text>
+<rect x="109.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="140.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">r</text>
+<text x="166.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">7@</text>
+<rect x="178.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="209.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">f</text>
+<text x="235.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">5#</text>
+<rect x="247.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="278.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">w</text>
+<text x="304.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">3$</text>
+<rect x="316.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="347.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">g</text>
+<text x="373.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">1%</text>
+<rect x="385.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="416.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">;</text>
+<text x="442.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">0^</text>
+<rect x="454.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="485.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">l</text>
+<text x="511.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">2&amp;</text>
+<rect x="523.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="554.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">p</text>
+<text x="580.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">4*</text>
+<rect x="592.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="623.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">y</text>
+<text x="649.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">6(</text>
+<rect x="661.00" y="140.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="692.50" y="169.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">z</text>
+<text x="718.00" y="151.00" font-family="DejaVu Sans, sans-serif" font-size="11" fill="#d08770" text-anchor="end" dominant-baseline="central">8)</text>
+<rect x="40.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="71.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">a</text>
+<rect x="109.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="140.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">s</text>
+<rect x="178.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="209.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">e</text>
+<rect x="247.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="278.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">t</text>
+<rect x="316.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="347.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">d</text>
+<rect x="385.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="416.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">h</text>
+<rect x="454.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="485.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">n</text>
+<rect x="523.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="554.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">u</text>
+<rect x="592.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="623.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">i</text>
+<rect x="661.00" y="204.00" width="63.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="692.50" y="233.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">o</text>
+<rect x="40.00" y="268.00" width="63.76" height="58.00" rx="8" fill="#333333" stroke="#4d4d4d" stroke-width="1"/>
+<text x="71.88" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">&#8679;</text>
+<rect x="109.76" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="134.29" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">,</text>
+<rect x="164.81" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="189.33" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">c</text>
+<rect x="219.86" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="244.38" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">x</text>
+<rect x="274.90" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="299.43" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">v</text>
+<rect x="329.95" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="354.48" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">/</text>
+<rect x="385.00" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="409.52" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">k</text>
+<rect x="440.05" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="464.57" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">m</text>
+<rect x="495.10" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="519.62" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">b</text>
+<rect x="550.14" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="574.67" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">j</text>
+<rect x="605.19" y="268.00" width="49.05" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="629.71" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">.</text>
+<rect x="660.24" y="268.00" width="63.76" height="58.00" rx="8" fill="#333333" stroke="#4d4d4d" stroke-width="1"/>
+<text x="692.12" y="297.00" font-family="DejaVu Sans, sans-serif" font-size="20" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">&#9003;</text>
+<rect x="40.00" y="332.00" width="90.00" height="58.00" rx="8" fill="#333333" stroke="#4d4d4d" stroke-width="1"/>
+<text x="85.00" y="361.00" font-family="DejaVu Sans, sans-serif" font-size="16" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">?123</text>
+<rect x="136.00" y="332.00" width="55.00" height="58.00" rx="8" fill="#333333" stroke="#4d4d4d" stroke-width="1"/>
+<text x="163.50" y="361.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">,</text>
+<rect x="197.00" y="332.00" width="370.00" height="58.00" rx="8" fill="#3b3b3b" stroke="#4d4d4d" stroke-width="1"/>
+<text x="382.00" y="361.00" font-family="DejaVu Sans, sans-serif" font-size="12" fill="#999999" text-anchor="middle" dominant-baseline="central" font-weight="normal">space</text>
+<rect x="573.00" y="332.00" width="55.00" height="58.00" rx="8" fill="#333333" stroke="#4d4d4d" stroke-width="1"/>
+<text x="600.50" y="361.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#e8e4dd" text-anchor="middle" dominant-baseline="central" font-weight="normal">.</text>
+<rect x="634.00" y="332.00" width="90.00" height="58.00" rx="8" fill="#333333" stroke="#4d4d4d" stroke-width="1"/>
+<text x="679.00" y="361.00" font-family="DejaVu Sans, sans-serif" font-size="22" fill="#d08770" text-anchor="middle" dominant-baseline="central" font-weight="normal">&#9166;</text>
+</svg>

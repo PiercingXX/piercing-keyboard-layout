@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xkbConfigRegistry SYSTEM "xkb.dtd">
+<!-- Registers the Piercing layout so it shows up in GUI keyboard pickers
+     (GNOME/KDE settings, etc.). libxkbregistry merges this user file with
+     the system registry — it does not replace it. -->
+<xkbConfigRegistry version="1.1">
+  <layoutList>
+    <layout>
+      <configItem>
+        <name>piercing</name>
+        <shortDescription>pcx</shortDescription>
+        <description>English (Piercing)</description>
+        <languageList>
+          <iso639Id>eng</iso639Id>
+        </languageList>
+      </configItem>
+    </layout>
+  </layoutList>
+</xkbConfigRegistry>
