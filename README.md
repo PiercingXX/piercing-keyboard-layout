@@ -69,8 +69,9 @@ On-screen keyboard layouts for Phosh phones (Furi, PinePhone, Librem 5),
 based on the furi-phone-colemak-keyboard structure. Includes portrait +
 landscape (`_wide`) variants of the base layout plus `terminal/` (Ctrl,
 Alt, Tab, arrows, F-keys), `email/` (@ key), and `url/` (/ key) hint
-variants. Bottom row everywhere: Shift · 123 · prefs · Enter · space ·
-Backspace — Enter left of space, same as the Preonic thumb keys.
+variants. Bottom row everywhere: Backspace · Shift · prefs · Enter ·
+space · 123 — Enter left of space (~1:2 Enter:space split), same thumb
+order as the Preonic.
 
 Run **on the phone**, inside the Phosh session:
 
@@ -100,7 +101,8 @@ of Gboard itself. Use [HeliBoard](https://github.com/Helium314/HeliBoard)
 2. Settings → Layouts → Functional keys → add custom →
    load `android/heliboard/piercing-functional-keys.json`. This clears the
    cramped Shift/Backspace off the letter row and makes the bottom row
-   `?123 · ⇧ · ⏎ · space · ⌫` (Enter left of space, like the Preonic).
+   `⌫ · ⇧ · ⏎ · space · ?123` (Enter left of a ~1:2 space, like the
+   Preonic).
 3. Long-press any top-row letter for that column's number-row pair
    (e.g. long-press `q` → `9` / `!`).
 4. Optional: enable Settings → Preferences → Number row. HeliBoard can

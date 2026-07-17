@@ -5,29 +5,30 @@ outlines:
     altline:   { width: 46, height: 52 }
     wide:      { width: 50, height: 52 }
     special:   { width: 38, height: 52 }
-    spaceline: { width: 123.34, height: 52 }
+    enterline: { width: 57.78, height: 52 }
+    spaceline: { width: 115.56, height: 52 }
 
 views:
     base:
         - "q r f w g ; l p y z"
         - "a s e t d h n u i o"
         - ", c x v / k m b j ."
-        - "Shift_L show_numbers preferences Return space BackSpace"
+        - "BackSpace Shift_L preferences Return space show_numbers"
     upper:
         - "Q R F W G colon L P Y Z"
         - "A S E T D H N U I O"
         - "< C X V ? K M B J >"
-        - "Shift_L show_numbers preferences Return space BackSpace"
+        - "BackSpace Shift_L preferences Return space show_numbers"
     numbers:
         - "9 7 5 3 1 0 2 4 6 8"
         - "! @ # $ % ^ & * ( )"
         - "show_symbols - _ + = \" ' colon ?"
-        - "show_letters preferences Return space BackSpace"
+        - "BackSpace preferences Return space show_letters"
     symbols:
         - "~ ` | · √ π τ ÷ × ¶"
         - "© ® £ € ¥ ^ ° * { }"
         - "show_numbers_from_symbols \\ / < > = [ ]"
-        - "show_letters preferences Return space BackSpace"
+        - "BackSpace preferences Return space show_letters"
 
 buttons:
     Shift_L:
@@ -69,7 +70,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "enterline"
         icon: "key-enter"
         keysym: "Return"
     colon:

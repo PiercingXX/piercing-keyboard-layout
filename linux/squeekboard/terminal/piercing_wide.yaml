@@ -8,7 +8,8 @@ outlines:
     large:     { width: 70, height: 37 }
     action:    { width: 90, height: 37 }
     wide:      { width: 72, height: 37 }
-    spaceline: { width: 128, height: 37 }
+    enterline: { width: 67.33, height: 37 }
+    spaceline: { width: 134.67, height: 37 }
     small:     { width: 67.4, height: 22 }
 
 views:
@@ -17,25 +18,25 @@ views:
         - "q r f w g ; l p y z"
         - "PeriodSmall a s e t d h n u i o MinusSmall"
         - ", c x v / k m b j ."
-        - "Shift_L show_numbers preferences Return space show_actions BackSpace"
+        - "BackSpace Shift_L preferences Return space show_actions show_numbers"
     upper:
         - "TabSmall Ctrl Alt PgUp PgDn Home End"
         - "Q R F W G colon L P Y Z"
         - "SlashSmall A S E T D H N U I O PipeSmall"
         - "< C X V ? K M B J >"
-        - "Shift_L show_numbers preferences Return space show_actions BackSpace"
+        - "BackSpace Shift_L preferences Return space show_actions show_numbers"
     numbers:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "9 7 5 3 1 0 2 4 6 8"
         - "\\ * # $ / & - + ( ) _"
         - "show_symbols , \" ' colon ; ! ?"
-        - "show_letters preferences Return space period BackSpace"
+        - "BackSpace preferences Return space period show_letters"
     symbols:
         - "TabSmall Ctrl Alt ↑ ↓ ← →"
         - "~ ` · √ π τ ÷ × ¶ @"
         - "© ® £ € ¥ ^ ° { }"
         - "show_numbers_from_symbols % | < > = [ ]"
-        - "show_letters preferences Return space period BackSpace"
+        - "BackSpace preferences Return space period show_letters"
     actions:
         - "TabSmall Ctrl Alt PgUp PgDn Home End"
         - "F1  F2  F3  F4  F5  F6"
@@ -83,7 +84,7 @@ buttons:
         outline: "spaceline"
         text: " "
     Return:
-        outline: "wide"
+        outline: "enterline"
         icon: "key-enter"
         keysym: "Return"
     colon:
