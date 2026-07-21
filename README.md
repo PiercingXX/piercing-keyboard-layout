@@ -2,7 +2,7 @@
 
 My personal layout designed by what works for me. No one else will touch this but that is not why its here.
 
-One layout,every platform: Linux (X11 + Wayland), Windows, Android/GrapheneOS, and QMK/Vial ortholinear boards.
+One layout, every platform: Linux (X11 + Wayland), Windows, macOS, Android/GrapheneOS, and QMK/Vial ortholinear boards.
 
 ```
 `~   !9   @7   #5   $3   %1   ^0   &2   *4   (6   )8   -_   =+   Del
@@ -45,6 +45,10 @@ and ortholinear boards.
 
 ![Piercing layout on HeliBoard](images/piercing-heliboard.png)
 
+### GNOME Shell on-screen keyboard
+
+![Piercing layout on the GNOME Shell OSK](images/piercing-gnome-osk.png)
+
 ## Install
 
 ### Linux (X11 and Wayland) — `linux/`
@@ -68,8 +72,9 @@ verifies the layout compiles. Nothing activates until you select it:
 On-screen keyboard layouts for Phosh phones (Furi, PinePhone, Librem 5),
 based on the furi-phone-colemak-keyboard structure. Includes portrait +
 landscape (`_wide`) variants of the base layout plus `terminal/` (Ctrl,
-Alt, Tab, arrows, F-keys), `email/` (@ key), and `url/` (/ key) hint
-variants. Bottom row everywhere: Backspace · Shift · prefs · Enter ·
+Alt, Tab, arrows, F-keys), `email/` (@ key), `url/` (/ key), and
+`number/` + `pin/` (digit pads in the Piercing `9 7 5 3 1 0 2 4 6 8`
+order) hint variants. Bottom row everywhere: Backspace · Shift · prefs · Enter ·
 space · 123 — Enter left of space (~1:2 Enter:space split), same thumb
 order as the Preonic.
 
@@ -89,19 +94,39 @@ a top-row letter for its number-row pair (q → 9/!), `?123` level with the
 `9 7 5 3 1 0 2 4 6 8` digit order, and a bottom row of
 ⌫ · ⇧ · 🌐 · ⏎ · space · ?123 with a 1:2 Enter:space split.
 
-GNOME loads OSK layouts from a compiled system bundle keyed by xkb layout
-name (no user-level override exists), so the installer rebuilds
-`/usr/share/gnome-shell/gnome-shell-osk-layouts.gresource` with
-`piercing.json` added — it backs up the stock bundle to `*.orig` and
-needs sudo for the copy:
+GNOME loads OSK layouts from a compiled resource bundle keyed by xkb
+layout name, with no user-level override path — so the installer ships a
+tiny shell extension that registers an extra bundle containing
+`piercing.json` at runtime. User-level, no sudo, survives gnome-shell
+updates:
 
 ```sh
 ./linux/install.sh           # xkb layout first (defines the input source)
-./linux/gnome-osk/install.sh # rebuild + replace the OSK bundle
+./linux/gnome-osk/install.sh # build + install the piercing-osk extension
 ```
 
-Log out/in afterwards so gnome-shell reloads the bundle. A gnome-shell
-package update restores the stock bundle; just re-run the script.
+Log out/in so gnome-shell picks up the extension. If extensions are
+disabled on the machine, `install-system.sh` instead patches the system
+bundle directly (sudo, backs up to `*.orig`, re-run after gnome-shell
+updates).
+
+### Linux system-wide (GDM, TTYs, all compositors) — `linux/keyd/`
+
+An alternative to the xkb approach: [keyd](https://github.com/rvaiya/keyd)
+remaps at the evdev level, so the layout (including the number-row
+symbol/digit swap, Caps→Backspace, Backspace→Delete, and AltGr arrows)
+works at the login screen, in virtual consoles, and under any compositor,
+for every user:
+
+```sh
+sudo pacman -S keyd        # or: apt install keyd
+./linux/keyd/install.sh    # installs /etc/keyd/default.conf, reloads keyd
+```
+
+**Use one or the other**: with keyd active, set the session's input
+source back to plain "English (US)" — keyd + the piercing xkb layout
+together would remap letters twice. On-screen keyboards bypass keyd, so
+touch-first devices should stay on the xkb + OSK setup instead.
 
 ### Windows — `windows/`
 
@@ -111,6 +136,20 @@ package update restores the stock bundle; just re-run the script.
 2. Run `install.ps1` as Administrator — applies the Caps→Backspace and
    Backspace→Delete scancode remaps and autostarts the AltGr-arrows script
    (needs [AutoHotkey v2](https://www.autohotkey.com)). Reboot once.
+
+### macOS — `macos/`
+
+```sh
+./macos/install.sh
+```
+
+Installs `piercing.keylayout` to `~/Library/Keyboard Layouts` (select it
+under System Settings → Keyboard → Input Sources → Others → Piercing;
+log out/in if it doesn't appear), plus a LaunchAgent that applies the
+Caps→Backspace and Backspace→Delete remaps via `hidutil` at login. If
+[Karabiner-Elements](https://karabiner-elements.pqrs.org) is installed,
+the AltGr-arrows rule is copied too — enable "Piercing AltGr arrows"
+under Complex Modifications (right Option is the AltGr key).
 
 ### Android / GrapheneOS — `android/`
 
@@ -170,7 +209,7 @@ The board keeps sending standard positions (the OS layout remaps), with:
 
 1. Preonic: `apply-piercing.py --dump backup.bin && apply-piercing.py --apply`
 2. Linux: select "English (Piercing)" as input source
-3. Windows / Android: install as above, pick the layout
+3. Windows / macOS / Android: install as above, pick the layout
 
 Roll back anytime: `--restore backup.bin` on the board, re-select your old
 layout in each OS, delete the `Scancode Map` registry value on Windows.
@@ -181,7 +220,9 @@ layout in each OS, delete the `Scancode Map` registry value on Windows.
 images/                       per-device diagrams (PNG)
 linux/                        xkb symbols + rules + install.sh
 linux/squeekboard/            Phosh phone OSK layouts + install.sh
-linux/gnome-osk/              GNOME Shell OSK layout + gresource install.sh
+linux/gnome-osk/              GNOME Shell OSK layout, extension + system installers
+linux/keyd/                   system-wide evdev remap (GDM/TTY/all compositors)
+macos/                        .keylayout, hidutil LaunchAgent, Karabiner rule, install.sh
 windows/                      MSKLC .klc, scancode-remap.reg, AltGr .ahk, install.ps1
 android/heliboard/            touch-keyboard layout + functional keys json
 android/hardware-keyboard/    KCM layout APK project (physical keyboards)

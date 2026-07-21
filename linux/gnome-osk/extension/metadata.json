@@ -1,0 +1,7 @@
+{
+  "uuid": "piercing-osk@piercingxx.github.io",
+  "name": "Piercing OSK Layout",
+  "description": "Adds the Piercing layout to the GNOME Shell on-screen keyboard",
+  "shell-version": ["45", "46", "47", "48", "49", "50"],
+  "url": "https://github.com/PiercingXX/piercing-keyboard-layout"
+}
