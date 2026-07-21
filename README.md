@@ -80,6 +80,29 @@ Run **on the phone**, inside the Phosh session:
 ./linux/squeekboard/install.sh  # copies layouts, enables the input source
 ```
 
+### GNOME on-screen keyboard (touch) — `linux/gnome-osk/`
+
+The OSK layout GNOME Shell pops up on touch screens (tablets, 2-in-1s)
+when the "English (Piercing)" input source is active. Same touch
+adaptation as Squeekboard/HeliBoard: three 10-key ortho rows, long-press
+a top-row letter for its number-row pair (q → 9/!), `?123` level with the
+`9 7 5 3 1 0 2 4 6 8` digit order, and a bottom row of
+⌫ · ⇧ · 🌐 · ⏎ · space · ?123 with a 1:2 Enter:space split.
+
+GNOME loads OSK layouts from a compiled system bundle keyed by xkb layout
+name (no user-level override exists), so the installer rebuilds
+`/usr/share/gnome-shell/gnome-shell-osk-layouts.gresource` with
+`piercing.json` added — it backs up the stock bundle to `*.orig` and
+needs sudo for the copy:
+
+```sh
+./linux/install.sh           # xkb layout first (defines the input source)
+./linux/gnome-osk/install.sh # rebuild + replace the OSK bundle
+```
+
+Log out/in afterwards so gnome-shell reloads the bundle. A gnome-shell
+package update restores the stock bundle; just re-run the script.
+
 ### Windows — `windows/`
 
 1. Build `piercing.klc` with [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=102134):
@@ -158,6 +181,7 @@ layout in each OS, delete the `Scancode Map` registry value on Windows.
 images/                       per-device diagrams (PNG)
 linux/                        xkb symbols + rules + install.sh
 linux/squeekboard/            Phosh phone OSK layouts + install.sh
+linux/gnome-osk/              GNOME Shell OSK layout + gresource install.sh
 windows/                      MSKLC .klc, scancode-remap.reg, AltGr .ahk, install.ps1
 android/heliboard/            touch-keyboard layout + functional keys json
 android/hardware-keyboard/    KCM layout APK project (physical keyboards)
