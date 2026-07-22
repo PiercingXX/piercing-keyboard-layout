@@ -11,7 +11,8 @@ set -euo pipefail
 SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONF="/etc/keyd/default.conf"
 
-command -v keyd >/dev/null || {
+# Debian ships the binary as keyd.rvaiya (name clash with another package)
+KEYD="$(command -v keyd || command -v keyd.rvaiya)" || {
     echo "ERROR: keyd not installed (package: keyd)." >&2
     exit 1
 }
@@ -23,8 +24,11 @@ fi
 
 sudo mkdir -p /etc/keyd
 sudo install -m 644 "$SRC/piercing.conf" "$CONF"
+# MNT Pocket Reform internal keyboard/trackball — only ever matches
+# USB id 1209:6d06, so it's inert on every other machine
+sudo install -m 644 "$SRC/pocket-reform.conf" /etc/keyd/pocket-reform.conf
 sudo systemctl enable --now keyd >/dev/null 2>&1 || true
-sudo keyd reload
+sudo "$KEYD" reload
 echo "Installed $CONF and reloaded keyd."
 
 cat <<'EOF'
@@ -33,6 +37,7 @@ Now set your session input source to plain "English (US)" (remove the
 piercing xkb source) — keyd already does the remapping underneath.
 
 Check it's live:    sudo keyd monitor      (type and watch translated keys)
+                    (Debian names the binary keyd.rvaiya)
 Restore stock:      sudo rm /etc/keyd/default.conf && sudo keyd reload
                     (or put back /etc/keyd/default.conf.orig)
 EOF

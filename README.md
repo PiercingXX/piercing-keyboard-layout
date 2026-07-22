@@ -128,6 +128,14 @@ source back to plain "English (US)" — keyd + the piercing xkb layout
 together would remap letters twice. On-screen keyboards bypass keyd, so
 touch-first devices should stay on the xkb + OSK setup instead.
 
+`pocket-reform.conf` is the ortho-5x12 layout adapted to the MNT Pocket
+Reform's internal keyboard + trackball (USB id `1209:6d06` — it only ever
+matches that device). The bottom-left ○ key is firmware-local, so the mod
+block sits one key right of the Preonic's; both Space keys share one
+scancode, so Enter lives on the outer-left trackball button (L1+Space as
+fallback). Deployment kit for the device itself: the `mnt-pocket-reform`
+repo.
+
 ### Windows — `windows/`
 
 1. Build `piercing.klc` with [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=102134):
@@ -222,6 +230,7 @@ linux/                        xkb symbols + rules + install.sh
 linux/squeekboard/            Phosh phone OSK layouts + install.sh
 linux/gnome-osk/              GNOME Shell OSK layout, extension + system installers
 linux/keyd/                   system-wide evdev remap (GDM/TTY/all compositors)
+                              + MNT Pocket Reform internal keyboard/trackball map
 macos/                        .keylayout, hidutil LaunchAgent, Karabiner rule, install.sh
 windows/                      MSKLC .klc, scancode-remap.reg, AltGr .ahk, install.ps1
 android/heliboard/            touch-keyboard layout + functional keys json
