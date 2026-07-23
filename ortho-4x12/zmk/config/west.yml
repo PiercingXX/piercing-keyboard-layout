@@ -13,10 +13,8 @@ manifest:
       remote: petejohanson
       revision: v0.3
   self:
-    # Must be the path of this directory relative to the repo root, not the
-    # bare "config" a top-level zmk-config uses. ZMK's build-user-config
-    # workflow runs `west init -l <repo>/<config_path>` from the repo root,
-    # and west places the workspace top at <manifest dir> minus self.path —
-    # so "config" would put the top at ortho-4x12/zmk and the following
-    # `west update` (which runs from the repo root) fails to find it.
-    path: ortho-4x12/zmk/config
+    # "config", not this directory's repo-relative path: the build workflow
+    # stages these files at <workspace>/config before running west, because
+    # west requires the manifest directory to sit directly under the
+    # workspace root. See .github/workflows/zmk-blank-slate.yml.
+    path: config

@@ -1,14 +1,81 @@
+# Builds Blank Slate firmware from ortho-4x12/zmk/.
+#
+# ZMK's reusable build-user-config workflow can't be used here: it runs
+# `west init -l <repo>/<config_path>` from the repo root, and west places
+# the workspace top at the config directory's PARENT. That only lands on
+# the repo root when the config is a direct child of it, as in a standard
+# top-level zmk-config. Our config is nested per-board, so the workspace
+# would land in ortho-4x12/zmk and the following `west update` — which
+# runs from the repo root — fails with "no west workspace found".
+#
+# So we stage the config at the workspace root ourselves and drive west
+# directly. Everything else matches what the reusable workflow does.
 name: Build ZMK firmware (Blank Slate)
 
 on:
   push:
     paths:
       - "ortho-4x12/zmk/**"
+      - ".github/workflows/zmk-blank-slate.yml"
   workflow_dispatch:
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    with:
-      config_path: ortho-4x12/zmk/config
-      build_matrix_path: ortho-4x12/zmk/build.yaml
+    runs-on: ubuntu-latest
+    container:
+      image: zmkfirmware/zmk-build-arm:stable
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: lpgalaxy_blank_slate
+            extra_west: ""
+            extra_cmake: ""
+          - name: lpgalaxy_blank_slate-studio
+            extra_west: "-S studio-rpc-usb-uart"
+            extra_cmake: "-DCONFIG_ZMK_STUDIO=y"
+    steps:
+      - uses: actions/checkout@v4
+
+      # west needs the manifest directory to sit directly under the
+      # workspace root; the per-board path is only how we organise the repo
+      - name: Stage config at the workspace root
+        run: cp -R ortho-4x12/zmk/config "$GITHUB_WORKSPACE/config"
+
+      - name: Cache west modules
+        uses: actions/cache@v4
+        continue-on-error: true
+        with:
+          path: |
+            modules/
+            tools/
+            zephyr/
+            bootloader/
+            zmk/
+          key: ${{ runner.os }}-zmk-${{ hashFiles('ortho-4x12/zmk/config/west.yml') }}
+          restore-keys: ${{ runner.os }}-zmk-
+
+      - name: West init
+        run: west init -l config
+
+      - name: West update
+        run: west update --fetch-opt=--filter=tree:0
+
+      - name: West Zephyr export
+        run: west zephyr-export
+
+      - name: Build ${{ matrix.name }}
+        run: |
+          west build -s zmk/app -d build -b lpgalaxy_blank_slate \
+            ${{ matrix.extra_west }} -- \
+            -DZMK_CONFIG="$GITHUB_WORKSPACE/config" ${{ matrix.extra_cmake }}
+
+      - name: Rename firmware
+        run: |
+          mkdir -p artifacts
+          cp build/zephyr/zmk.uf2 "artifacts/${{ matrix.name }}.uf2"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: artifacts
