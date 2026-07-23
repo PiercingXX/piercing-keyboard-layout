@@ -1,0 +1,16 @@
+manifest:
+  remotes:
+    - name: petejohanson
+      url-base: https://github.com/petejohanson
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+  projects:
+    - name: zmk
+      remote: zmkfirmware
+      revision: v0.3
+      import: app/west.yml
+    - name: blank-slate-zmk-module
+      remote: petejohanson
+      revision: v0.3
+  self:
+    path: config

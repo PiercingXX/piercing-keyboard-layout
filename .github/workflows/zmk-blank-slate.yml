@@ -1,0 +1,14 @@
+name: Build ZMK firmware (Blank Slate)
+
+on:
+  push:
+    paths:
+      - "ortho-4x12/zmk/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      config_path: ortho-4x12/zmk/config
+      build_matrix_path: ortho-4x12/zmk/build.yaml
