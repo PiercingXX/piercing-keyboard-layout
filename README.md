@@ -2,7 +2,7 @@
 
 My personal layout designed by what works for me. No one else will touch this but that is not why its here.
 
-One layout, every platform: Linux (X11 + Wayland), Windows, macOS, Android/GrapheneOS, and QMK/Vial ortholinear boards.
+One layout, every platform: Linux (X11 + Wayland), Windows, macOS, Android/GrapheneOS, and QMK/Vial/ZMK ortholinear boards.
 
 ```
 `~   !9   @7   #5   $3   %1   ^0   &2   *4   (6   )8   -_   =+   Del
@@ -21,6 +21,10 @@ Ctrl  Super  Alt         [ Space ]        AltGr  Super  Menu  Ctrl
 - **Backspace where it should be** (the old Caps Lock key) — the most-used
   editing key on the strongest position. **Delete** takes the old Backspace
   corner. There is no Caps Lock.
+- **The top-right key is always Delete**, on every board. On the smaller
+  boards that means Delete keeps the corner and the media key is what
+  gets dropped to a layer — not the reverse. A layout that shuffles
+  Delete around per board defeats the point of one layout everywhere.
 - **AltGr + h/j/k/l = ← ↓ ↑ →** — vim arrows that follow the *letters*,
   wherever they live on the board.
 - Measured ~3.3% same-finger bigrams on English text (QWERTY ~7.6%,
@@ -58,14 +62,78 @@ and ortholinear boards.
 ```
 
 Installs to `~/.config/xkb/` (user-level — survives system updates) and
-verifies the layout compiles. Nothing activates until you select it:
+verifies the layout compiles. **Nothing activates until you select it** —
+until then every keyboard you plug in keeps typing whatever layout the
+session is already on, no matter what its firmware says.
 
-| Environment | How to enable |
-|---|---|
-| GNOME / KDE (Wayland) | add input source "English (Piercing)" (re-login first) |
-| sway | `input type:keyboard xkb_layout piercing` |
-| Hyprland | `input { kb_layout = piercing }` |
-| X11 | `setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY` |
+#### Wayland compositors
+
+One line each, dropped into the config the installer left alone:
+
+| WM | File | Line to add |
+|---|---|---|
+| GNOME | — | `gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'piercing')]"` |
+| KDE | — | System Settings → Keyboard → Layouts → add "English (Piercing)" |
+| Hyprland | `~/.config/hypr/hyprland.conf` | `input { kb_layout = piercing }` |
+| sway | `~/.config/sway/config` | `input type:keyboard xkb_layout piercing` |
+| river | `~/.config/river/init` | `riverctl keyboard-layout piercing` |
+| niri | `~/.config/niri/config.kdl` | `input { keyboard { xkb { layout "piercing" } } }` |
+| qtile (Wayland) | `~/.config/qtile/config.py` | `wl_input_rules = {"type:keyboard": InputConfig(kb_layout="piercing")}` |
+
+**Clear the variant at the same time.** `piercing` is a layout, not a
+variant of `us`, so a leftover `kb_variant = "colemak"` (or
+`xkb_variant`) makes the compositor look for `piercing(colemak)`, which
+doesn't exist — it falls back and you keep typing the old layout while
+the config *looks* correct. Set the variant to `""`.
+
+Leave `kb_options = "caps:backspace"` alone if you have it. The Piercing
+symbols file already binds Caps to Backspace, so it is redundant *under
+Piercing* — but the ortho boards send `KC_CAPS` from that key by design
+(see [Backspace and Delete](#backspace-and-delete-are-remapped-by-the-os-not-the-firmware)),
+so the option is what keeps it working whenever you switch to another
+layout.
+
+If your compositor config is generated (Lua, Nix, a templating script),
+edit the generator rather than the emitted file — e.g. Hyprland configs
+built with `hl.config{}` keep these keys in an `input = { ... }` table.
+To test before committing to it, Hyprland applies changes live:
+
+```sh
+hyprctl keyword input:kb_layout piercing && hyprctl keyword input:kb_variant ""
+```
+
+#### X11 window managers
+
+All of them take the *same* one-liner — only the file it goes in changes:
+
+```sh
+setxkbmap -I$HOME/.config/xkb piercing -print | xkbcomp -I$HOME/.config/xkb - $DISPLAY
+```
+
+The `-I$HOME/.config/xkb` flags are what make X11 look in the user-level
+directory; plain `setxkbmap piercing` fails with "cannot find layout"
+unless the layout is installed system-wide.
+
+| WM | File | Line to add |
+|---|---|---|
+| i3 | `~/.config/i3/config` | `exec_always --no-startup-id setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY` |
+| bspwm | `~/.config/bspwm/bspwmrc` | `setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY` |
+| herbstluftwm | `~/.config/herbstluftwm/autostart` | `setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY` |
+| dwm | `~/.config/dwm/autostart.sh` | `setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY` |
+| awesome | `~/.config/awesome/rc.lua` | `awful.spawn.with_shell("setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY")` |
+| qtile (X11) | `~/.config/qtile/config.py` | `subprocess.run("setxkbmap -I$HOME/.config/xkb piercing -print \| xkbcomp -I$HOME/.config/xkb - $DISPLAY", shell=True)` in a `@hook.subscribe.startup_once` |
+| any / .xinitrc | `~/.xinitrc` | same line, before the `exec <wm>` |
+
+In i3, bspwm, herbstluftwm and dwm the line runs through a shell, so the
+pipe works as written. Use `exec_always` (not `exec`) in i3 so the layout
+survives a config reload.
+
+#### Console and login screen
+
+The commands above only cover your graphical session. To cover TTYs and
+the display manager too, use the keyd route in `linux/keyd/` instead —
+and if you do, set the session input source back to plain "English (US)",
+since keyd plus the piercing xkb layout would remap letters twice.
 
 ### Linux phones (Phosh / Squeekboard) — `linux/squeekboard/`
 
@@ -213,9 +281,111 @@ The board keeps sending standard positions (the OS layout remaps), with:
 `kle-piercing-5x12.json` imports into
 [keyboard-layout-editor.com](https://keyboard-layout-editor.com).
 
+### Blank Slate / Planck / minipeg48 4×12 — `ortho-4x12/`
+
+The Preonic layout minus its number row: the lower four rows carry over
+unchanged (same 2u Enter + 2u Space thumb cluster), and a third hold-key
+joins the `,`=L1 / `c`=L2 pattern on the key that types `x`:
+
+- **Layer 3** (hold the `x` key): the missing number row (`` `~ `` +
+  symbols/digits + Del) and F-row (F12 F1–F10 Ins). Shift passes
+  through, so Shift + top row types digits exactly like the Preonic.
+- Layers 1 and 2 (arrows/symbols, numpad) are identical to the Preonic's.
+
+**LP Galaxy Blank Slate (ZMK, nRF52840)** — `ortho-4x12/zmk/` is a
+complete zmk-config (ZMK v0.3 + the blank-slate module, 2×2u physical
+layout). Pushing changes under `ortho-4x12/zmk/` runs the
+`zmk-blank-slate` GitHub Actions workflow, which builds two firmware
+artifacts: plain and ZMK Studio-enabled. To flash: double-tap reset,
+then copy the `.uf2` onto the UF2 drive that appears (grab the drive's
+`CURRENT.UF2` first — it is a backup of the firmware currently on the
+board). On layer 3 the right hand of the letter row has Bluetooth
+profile (1–3), BT clear, and USB/BLE output-toggle keys.
+
+**Planck rev6/7 (QMK)** — import `ortho-4x12/qmk/piercing-planck-rev7.json`
+at [config.qmk.fm](https://config.qmk.fm), compile, and flash the built
+firmware with QMK Toolbox. `ortho-4x12/qmk/keymap.c` is the same keymap
+as compile-ready source (`LAYOUT_planck_2x2u`).
+
+**sporewoh minipeg48 (Vial)** — `ortho-4x12/vial/apply-piercing.py` writes
+the keymap over USB, exactly like the Preonic tool:
+
+```sh
+./apply-piercing.py                  # dry run: show pending changes
+./apply-piercing.py --apply          # write to the board
+./apply-piercing.py --dump my.bin    # back up the current keymap first!
+./apply-piercing.py --restore my.bin # put a backup back
+```
+
+Its matrix is a plain 4×12 grid even though the board is built 2×2u, so
+only one switch is wired under each 2u cap. Which half of a slot pair is
+live can't be read over HID, so the bottom row keeps Enter on slots 4/5/6
+and Space on slot 7 — the assignment already proven working on the board.
+
+`kle-piercing-4x12.json` imports into
+[keyboard-layout-editor.com](https://keyboard-layout-editor.com).
+
+### Charybdis 3×6 — `charybdis-3x6/`
+
+The 41-key BastardKB split with a trackball. Its 3×6 letter block is
+exactly the Planck's lower three rows, so every letter and layer key
+keeps its position; only the 5 thumbs differ from the Planck's 10 bottom-
+row functions. Layer 3 absorbs the overflow — number row, F-row, media,
+and the pointer block (sniping, drag-scroll, DPI, mouse buttons).
+
+Import `piercing-charybdis-3x6.layout.json` in Vial (File → Import
+Keymap). See [`charybdis-3x6/README.md`](charybdis-3x6/README.md) for the
+two deliberate deviations the key count forces.
+
+## The numpad layers assume the Piercing OS layout
+
+The keyboards send standard positions and the OS does the remapping — but
+the ortho numpad layers are the one place where firmware has to *know*
+which OS layout is active. Because Piercing puts digits on Shift, a
+numpad key that sent a plain `KC_7` would type `&`, so those layers send
+Shift+position instead: `7` is Shift+`2`, `9` is Shift+`1`, and so on.
+
+The consequence is worth knowing before you go hunting for a hardware
+fault: **run one of these boards while the session is still on QWERTY or
+Colemak and the numpad types symbols instead of digits.** That is the
+encoding working correctly against the wrong layout, not a broken keymap.
+Same story in reverse for the layer-3 number row — it deliberately gives
+symbols unshifted and digits on Shift, exactly like the Preonic's
+physical number row.
+
+If the numpad is producing `@ # $` where digits should be, check the
+session's active layout (`hyprctl devices -j`, `swaymsg -t get_inputs`,
+`setxkbmap -query`, `gsettings get org.gnome.desktop.input-sources
+sources`) before touching the board.
+
+### Backspace and Delete are remapped by the OS, not the firmware
+
+Same trap, sharper edge. The xkb layout does this:
+
+| Firmware sends | Renders as |
+|---|---|
+| `KC_CAPS` | **BackSpace** |
+| `KC_BSPC` | **Delete** |
+| `KC_DEL` | Delete |
+
+So a programmable board must send **`KC_CAPS`** from the home-row-left
+key, not `KC_BSPC`. Sending `KC_BSPC` there looks obviously right and is
+wrong: xkb turns it into Delete, leaving you with two Delete keys and no
+Backspace at all. The remap belongs to the OS layout — the firmware's job
+is only to put the *standard* scancode on the physical position, and the
+standard scancode for the key left of `A` is Caps Lock.
+
+This is the same double-remap the keymap headers warn about for letters;
+it just bites harder because the failure is a dead Backspace rather than
+a wrong letter. Every board in this repo sends `KC_CAPS` there.
+
+Keep `caps:backspace` in your compositor's `kb_options` if you switch
+between Piercing and other layouts — it makes that key behave under
+QWERTY/Colemak too. Under Piercing alone it is redundant.
+
 ## Switching (and switching back)
 
-1. Preonic: `apply-piercing.py --dump backup.bin && apply-piercing.py --apply`
+1. Preonic / minipeg48: `apply-piercing.py --dump backup.bin && apply-piercing.py --apply`
 2. Linux: select "English (Piercing)" as input source
 3. Windows / macOS / Android: install as above, pick the layout
 
@@ -236,6 +406,9 @@ windows/                      MSKLC .klc, scancode-remap.reg, AltGr .ahk, instal
 android/heliboard/            touch-keyboard layout + functional keys json
 android/hardware-keyboard/    KCM layout APK project (physical keyboards)
 ortho-5x12/                   Preonic: Vial apply/restore tool, QMK mirror, KLE
+ortho-4x12/                   Blank Slate (ZMK), Planck rev6/7 (QMK),
+                              minipeg48 (Vial apply/restore tool), KLE
+charybdis-3x6/                Charybdis 3x6: Vial keymap, QMK mirror, generator
 ```
 
 ## License
