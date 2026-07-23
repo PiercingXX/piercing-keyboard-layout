@@ -1,0 +1,670 @@
+# BATTLEZONE
+# Input Mapping
+# OVERVIEW CONTROLS
+# X POSITION CONTROL
+# addon folder - SBPPrefs.txt
+
+
+
+
+
+
+
+# CONTROL PANEL CONTROLS
+# PRESS THE Nth BUTTON
+mode_select_0 {
+	+ keyboard	Zero
+}
+
+mode_select_1 {
+	+ keyboard	1
+	- keyboard	LeftShift
+}
+
+mode_select_2 {
+	+ keyboard	2
+	- keyboard	LeftShift
+}
+
+mode_select_3 {
+	+ keyboard	3
+	- keyboard	LeftShift
+}
+
+mode_select_4 {
+	+ keyboard	4
+	- keyboard	LeftShift
+}
+
+mode_select_5 {
+	+ keyboard	5
+	- keyboard	LeftShift
+}
+
+mode_select_6 {
+	+ keyboard	6
+	- keyboard	LeftShift
+}
+
+mode_select_7 {
+	+ keyboard	7
+	- keyboard	LeftShift
+}
+
+mode_select_8 {
+	+ keyboard	8
+	- keyboard	LeftShift
+}
+
+mode_select_9 {
+	+ keyboard	9
+	- keyboard	LeftShift
+}
+
+
+
+
+
+
+
+# GROUPING CONTROLS
+# SELECT GROUP WITH A KEY
+group_select_0 {
+	+ keyboard	1
+	+ keyboard	LeftShift
+}
+
+group_select_1 {
+	+ keyboard	2
+	+ keyboard	LeftShift
+}
+
+group_select_2 {
+	+ keyboard	3
+	+ keyboard	LeftShift
+}
+
+group_select_3 {
+	+ keyboard	4
+	+ keyboard	LeftShift
+}
+
+group_select_4 {
+	+ keyboard	5
+	+ keyboard	LeftShift
+}
+
+group_select_5 {
+	+ keyboard	6
+	+ keyboard	LeftShift
+}
+
+group_select_6 {
+	+ keyboard	7
+	+ keyboard	LeftShift
+}
+
+
+
+
+
+
+# THROTTLE CONTROLS
+# DIGITAL THROTTLE TURBO
+turbo {
+	+ keyboard 	W
+	- program	EditMode
+}
+
+# DIGITAL THROTTLE FORWARD
+throttle_up {
+	+ keyboard 	Q
+	- program	EditMode
+}
+
+# DIGITAL THROTTLE BACK
+throttle_down {
+	+ keyboard 	S
+	- program	EditMode
+}
+
+# STRAFING CONTROLS
+# DIGITAL STRAFE RIGHT
+strafe_right {
+	+ keyboard 	D
+	- program	EditMode
+}
+
+# DIGITAL STRAFE LEFT
+strafe_left {
+	+ keyboard 	A
+	- program	EditMode
+}
+
+# JUMP CONTROLS
+jump {
+	+ keyboard 	E
+	- keyboard	LeftControl
+	- program	EditMode
+}
+
+# LINK SIMILAR WEAPONS
+weapon_link {
+	+ keyboard	Z
+	- program	EditMode
+}
+
+# SELECT A PARTICULAR HARDPOINT
+weapon_select_0 {
+	+ keyboard	F8
+	- keyboard	LeftShift
+}
+
+weapon_select_1 {
+	+ keyboard	C
+	- keyboard	LeftShift
+}
+
+weapon_select_2 {
+	+ keyboard	X
+	- keyboard	LeftShift
+}
+
+weapon_select_3 {
+	+ keyboard	F11
+	- keyboard	LeftShift
+}
+
+weapon_select_4 {
+	+ keyboard	F12
+	- keyboard	LeftShift
+}
+
+
+
+
+
+
+
+
+
+# MISCELLANEOUS CONTROLS
+# EJECT FROM VEHICLE
+eject {
+	+ keyboard	B
+	+ keyboard	LeftControl
+	- program	EditMode
+	- keyboard	LeftShift
+}
+
+# ABANDON VEHICLE
+abandon {
+	+ keyboard	H
+	- program	EditMode
+}
+
+# DEPLOY/UNDEPLOY VEHICLE
+deploy {
+	+ keyboard	F
+	- program	EditMode
+}
+
+# TARGETING CONTROLS
+# TARGET THE FRONTAL OBJECT
+frontal_target {
+	+ keyboard	T
+	- program	EditMode
+}
+
+# DROP A NAV BEACON
+drop_beacon {
+	+ keyboard	R
+	- program	EditMode
+}
+
+
+# PRESS RETICLE COMMAND
+menu_press {
+	+ keyboard	Space
+}
+
+# PRESS TARGET COMMAND
+alt_press {
+	+ keyboard	Alt
+}
+
+# CLOAK VEHICLE
+cloak {
+        + keyboard      G
+	- program	EditMode
+}
+
+
+
+
+
+
+
+
+# STEERING CONTROLS
+# ANALOG STEER
+steer {
+	- mouse		HorizVel
+	- program	ControlMode
+}
+
+# DIGITAL STEER RIGHT
+steer_right {
+	+ keyboard RightArrow
+	- program   EditMode
+}
+
+# DIGITAL STEER LEFT
+steer_left {
+	+ keyboard LeftArrow
+	- program   EditMode
+}
+
+# PITCHING CONTROLS
+# ANALOG PITCH
+pitch {
+	+ mouse		VertPos
+	- program	ControlMode
+	- keyboard	Tab
+}
+
+# DIGITAL PITCH UP
+pitch_up {
+	+ keyboard Comma
+	- program	EditMode
+}
+
+# DIGITAL PITCH DOWN
+pitch_down {
+	+ keyboard 	P
+	- program	ControlMode
+}
+
+
+
+
+
+
+
+
+
+# TRIGGER SPECIAL WEAPON
+weapon_special {
+	+ mouse		MiddleBtn
+	- keyboard	LeftShift
+	- program	ControlMode
+}
+
+weapon_cycle {
+	+ keyboard KeypadEnter
+	- program	EditMode
+}
+
+# WEAPON CONTROLS
+# TRIGGER CURRENT WEAPON
+weapon_fire {
+	+ mouse		LeftBtn
+	- keyboard	LeftShift
+	- program	ControlMode
+}
+
+weapon_fire {
+	+ keyboard  	Insert
+	- program	EditMode
+}
+
+# CYCLE WEAPON SELECTION
+weapon_cycle {
+	+ mouse		RightBtn
+	- keyboard	LeftShift
+	- program	ControlMode
+}
+# CYCLE THROUGH NAV BEACONS
+cycle_beacon {
+	+ keyboard	N
+	- program	EditMode
+}
+
+
+
+
+
+
+
+
+
+# VIEWPOINT CONTROLS
+# TRACK PITCH UP
+track_pitch_plus {
+	+ keyboard	GreyUpArrow
+}
+
+# TRACK PITCH DOWN
+track_pitch_minus {
+	+ keyboard	GreyDownArrow
+}
+
+# TRACK YAW RIGHT
+track_yaw_plus {
+	+ keyboard	GreyRightArrow
+}
+
+# TRACK YAW LEFT
+track_yaw_minus {
+	+ keyboard	GreyLeftArrow
+}
+
+# INCREASE ZOOM FACTOR
+zoom_factor_plus {
+	+ keyboard	GreyPlus
+}
+
+zoom_factor_plus {
+	+ keyboard	Equal
+}
+
+# DECREASE ZOOM FACTOR
+zoom_factor_minus {
+	+ keyboard	GreyMinus
+}
+
+zoom_factor_minus {
+	+ keyboard	Minus
+}
+
+# RESET ZOOM FACTOR
+zoom_factor_reset {
+	+ keyboard	GreyInsert
+}
+
+
+
+
+
+
+
+
+
+
+#Sat Mode Shit
+
+
+# CENTER ON THE USER
+center_player {
+	+ keyboard	C
+	+ program	ControlMode
+	- program   EditMode
+}
+
+# CENTER ON THE RECYCLER
+center_recycler {
+	+ keyboard	R
+	+ program	ControlMode
+	- program   EditMode
+}
+
+
+
+
+
+
+
+
+
+#Useless bit
+
+
+
+
+
+# CYCLE MENU SELECTION
+menu_pos {
+	+ mouse		VertVel
+	+ keyboard	LeftShift
+	- program	EditMode
+}
+
+menu_up {
+	+ keyboard	GreyUpArrow
+	+ keyboard	LeftShift
+	- program	EditMode
+}
+
+menu_down {
+	+ keyboard	GreyDownArrow
+	+ keyboard	LeftShift
+	- program	EditMode
+}
+
+menu_next {
+	+ mouse		LeftBtn
+	+ keyboard	LeftShift
+	- program	EditMode
+}
+
+menu_back {
+	+ mouse		RightBtn
+	+ keyboard	LeftShift
+	- program	EditMode
+}
+
+menu_back {
+	+ keyboard	Tab
+	- program	EditMode
+}
+
+menu_cycle {
+	+ keyboard	LeftShift
+	- program	EditMode
+}
+
+
+
+
+
+
+
+cmd_x {
+	+ mouse		HorizPos
+	+ program	ControlMode
+}
+
+# Y POSITION CONTROL
+cmd_y {
+	+ mouse		VertPos
+	+ program	ControlMode
+}
+
+# LEFT MOUSE CLICK
+cmd_lclick {
+	+ mouse		LeftBtn
+	- program	EditMode
+}
+
+# LEFT MOUSE HOLD
+cmd_lhold {
+	+ mouse		LeftBtn
+	- program	EditMode
+}
+
+# RIGHT MOUSE CLICK
+cmd_rclick {
+	+ mouse		RightBtn
+	- program	EditMode
+}
+
+# RIGHT MOUSE HOLD
+cmd_rhold {
+	+ mouse		RightBtn
+	- program	EditMode
+}
+
+# DELETE THE SELECTED OBJECT
+cmd_delete {
+	+ keyboard	GreyDelete
+	- program	EditMode
+}
+
+# MULTISELECT
+cmd_multi {
+	+ keyboard	Control
+	- program	EditMode
+}
+
+
+
+
+
+
+
+
+
+# TERRAIN EDIT CONTROLS
+# LEFT MOUSE
+edit_lmouse {
+	+ mouse		LeftBtn
+	+ program	ControlMode
+	+ program   EditMode
+}
+
+# RIGHT MOUSE
+edit_rmouse {
+	+ mouse		RightBtn
+	+ program   ControlMode
+	+ program   EditMode
+}
+
+# SHIFT KEY
+edit_shift {
+	+ keyboard	LeftShift
+	+ program	EditMode
+}
+
+# CONTROL KEY
+edit_control {
+	+ keyboard	LeftControl
+	+ program	EditMode
+}
+
+# COPY SELECTION
+edit_copy {
+	+ keyboard	LeftControl
+	+ keyboard  c
+	+ program   EditMode
+}
+
+# PASTE SELECTION
+edit_paste {
+	+ keyboard	LeftControl
+	+ keyboard  v
+	+ program   EditMode
+}
+
+# UNDO LAST ACTION
+edit_undo {
+	+ keyboard	LeftControl
+	+ keyboard  z
+	+ program   EditMode
+}
+
+# SCROLL RIGHT
+edit_right {
+	+ keyboard	RightArrow
+	+ program   EditMode
+}
+
+# SCROLL LEFT
+edit_left {
+	+ keyboard	LeftArrow
+	+ program   EditMode
+}
+
+# SCROLL UP
+edit_up {
+	+ keyboard	UpArrow
+	+ program	EditMode
+}
+
+# SCROLL DOWN
+edit_down {
+	+ keyboard	DownArrow
+	+ program	EditMode
+}
+
+# GET TILE MATERIAL
+edit_eyedropper {
+	+ keyboard	I
+	+ program	EditMode
+}
+
+# ROTATE TILE
+edit_rotate {
+	+ keyboard	R
+	+ program	EditMode
+}
+
+# FLIP TILE VERTICALLY
+edit_vertflip {
+	+ keyboard	V
+	+ program	EditMode
+}
+
+# FLIP TILE HORIZONTALLY
+edit_horizflip {
+	+ keyboard	H
+	+ program	EditMode
+}
+
+# PAINT TERRAIN
+edit_paint {
+	+ keyboard	P
+	+ program	EditMode
+}
+
+# PLACE SOLID TILE
+edit_solid {
+	+ keyboard	S
+	+ program	EditMode
+}
+
+# PLACE CAP TILE
+edit_cap {
+	+ keyboard	C
+	+ program	EditMode
+}
+
+# PLACE DIAGONAL TILE
+edit_diag {
+	+ keyboard	D
+	+ program	EditMode
+}
+
+# SELECT ALTERNATE
+edit_alternate {
+	+ keyboard	A
+	+ program	EditMode
+}
+
+# TOGGLE WIREFRAME
+edit_wireframe {
+	+ keyboard	W
+	+ program	EditMode
+}
+
+# TOGGLE COLOR MODE
+edit_wirecolor {
+	+ keyboard	Tab
+	+ program	EditMode
+}
+
+# TOGGLE MAP ELEVATION/MATERIAL
+edit_maptype {
+	+ keyboard	Tab
+	+ keyboard	LeftControl
+	+ program	EditMode
+}

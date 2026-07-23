@@ -1,0 +1,43 @@
+[SBPVisuals]
+
+GroundAttackMarkers=1
+GroundAttackMarkersCommSatOnly=0
+GroundGotoMarkers=1
+GroundGotoMarkersCommSatOnly=0
+GroundUnitMarkers=1
+GroundProxMineEmitter=1
+CommSatUnitPings=1
+EnableConstructorHolograms=1
+EnableWeather=0
+[SBPGlobals]
+
+TargetHotkey = T
+RemoteTargetHotkey=Shift+T
+AreaSelectHotkey = V
+PlayerBanList = 00000000000000000,76561198297657246
+DestroyNavAtBuildSite=0
+UnitResupplyBehavior=0
+BettyUnitAmmoNotification=1
+BettyUnitAmmoNotificationInterval=45
+MaxScrapNotification=1
+MaxScrapNotificationInterval=20
+CommSatScrollSpeed=1250
+ReduceScreenFlash=0
+AutoRecordGames=1
+AllowAllyCommand=1
+TargetAllyCommandA=F4
+TargetAllyCommandB=F5
+TargetAllyCommandC=F6
+TargetAllyCommandD=F7
+FireCannonHotkey=unassigned
+FireRocketHotkey=unassigned
+FireMortarHotkey=unassigned
+FireSpecialHotkey=unassigned
+JetPackUpKey=E
+JetPackForwardKey=W
+JetPackBackKey=S
+JetPackLeftKey=A
+JetPackRightKey=D
+JetPackDownKey=C
+SetManualHotkey=unassigned
+FullAutoLevel=0
